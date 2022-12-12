@@ -1,0 +1,4 @@
+.content > div{
+    display: table-cell;
+    padding-right: 5px;
+ }
