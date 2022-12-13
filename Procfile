@@ -1,1 +1,1 @@
-web: gunicorn roster.wsgi
+web: gunicorn crm_app.wsgi
