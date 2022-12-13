@@ -1,1 +1,1 @@
-web: gunicorn app:crm-app
+web: gunicorn crm_app:app --workers=4
