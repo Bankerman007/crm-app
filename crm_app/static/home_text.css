@@ -10,3 +10,39 @@ div.second_line {
     position: absolute;
     margin-left: 20px;
     margin-top: 16px;}
+
+
+div.home_text {
+    position: absolute;
+    margin-left: 350px;
+    margin-top: -150px;} 
+
+div.second_line {
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 16px;}
+
+@media only screen and (max-width:345px) {
+
+    div.home_text {
+        position: absolute;
+        margin-left: 350px;
+        margin-top: -150px;}
+    
+    div.second_line {
+        position: absolute;
+        margin-left: 20px;
+        margin-top: 16px;}
+    
+    
+    div.home_text {
+        position: absolute;
+        margin-left: 350px;
+        margin-top: -150px;} 
+
+    div.second_line {
+        position: absolute;
+        margin-left: 20px;
+        margin-top: 16px;}
+
+}
