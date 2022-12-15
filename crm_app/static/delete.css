@@ -6,9 +6,3 @@
     padding-right: 5px;
  }
 
- @media only screen and (max-width:345px) {
-    .content > div{
-        display: table-cell;
-        padding-right: 5px;
-     }
-}
