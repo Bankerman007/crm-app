@@ -8,8 +8,8 @@ app = Flask(__name__)
 app.config['SECRET_KEY']= 'r46ttr29ara'
 app.config['SQLALCHEMY_DATABASE_URI']='postgres://yamacrxc:DaRyQOt9c4ZXMIr09J4KvN5RreIU4JsR@raja.db.elephantsql.com/yamacrxc' #'sqlite:///site.db'
 db = SQLAlchemy(app)
-migrate = Migrate(app,db)
-migrate
+migrate = Migrate(app, db)
+
 
 
 bcrypt=Bcrypt(app)
