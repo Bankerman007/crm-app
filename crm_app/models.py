@@ -1,5 +1,7 @@
 from crm_app import db, login_manager
 from flask_login import UserMixin
+from flask_sqlalchemy import SQLAlchemy
+
 
 @login_manager.user_loader
 def load_user(user_id):
