@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField, IntegerField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 
 
@@ -23,6 +23,8 @@ class NewContactForm(FlaskForm):
     email= StringField('Email', validators= [DataRequired(), Email()])
     notes= TextAreaField('Notes', validators= [Length(min=0, max=250)])
     submit= SubmitField('Create')
+
+    
     
 
 
