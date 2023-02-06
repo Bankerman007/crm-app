@@ -3,44 +3,44 @@ from flask_login import current_user, login_required, login_user, logout_user
 from crm_app import app, bcrypt, db
 from crm_app.forms import LogInForm, NewContactForm, RegistrationForm
 from crm_app.models import Contacts, User
-from crm_app.treasury_rate import rates, prime_rate, dow, dow_price_change
+from crm_app.treasury_rate import Api_Call
 
 
 @app.route("/")
 @app.route("/home")
 def home():
-    rate= rates()
-    prime=prime_rate()
-    dow_change = dow_price_change()
-    dow_price = dow()
+    rate= Api_Call().rates()
+    prime=Api_Call().prime_rate()
+    dow_change = Api_Call().dow_price_change()
+    dow_price = Api_Call().dow()
     image_file = url_for('static', filename= 'profile_pics/default.jpeg')
     return render_template('home.html', image_file=image_file,rate=rate, prime=prime,
                             dow_price=dow_price,dow_change = dow_change)
 
 @app.route("/about")
 def about():
-    rate= rates()
-    prime=prime_rate()
-    dow_change = dow_price_change()
-    dow_price = dow()
+    rate= Api_Call().rates()
+    prime=Api_Call().prime_rate()
+    dow_change = Api_Call().dow_price_change()
+    dow_price = Api_Call().dow()
     return render_template('about.html', title= 'About', rate=rate, prime=prime,
                             dow_change=dow_change,dow_price=dow_price,)
 
 @app.route("/base")
 def base():
-    rate= rates()
-    prime=prime_rate()
-    dow_change = dow_price_change()
-    dow_price = dow()
+    rate= Api_Call().rates()
+    prime=Api_Call().prime_rate()
+    dow_change = Api_Call().dow_price_change()
+    dow_price = Api_Call().dow()
     return render_template('base.html', title='Base', rate=rate, prime=prime, 
                             dow_price=dow_price, dow_change=dow_change,)
 
 @app.route("/register", methods= ['GET','POST'])
 def register():
-    rate= rates()
-    prime=prime_rate()
-    dow_change = dow_price_change()
-    dow_price = dow()
+    rate= Api_Call().rates()
+    prime=Api_Call().prime_rate()
+    dow_change = Api_Call().dow_price_change()
+    dow_price = Api_Call().dow()
     if current_user.is_authenticated:
         return redirect(url_for('home'))
     form= RegistrationForm()
@@ -56,10 +56,10 @@ def register():
 
 @app.route("/login", methods= ['GET', 'POST'])
 def login():
-    rate= rates()
-    prime=prime_rate()
-    dow_change = dow_price_change()
-    dow_price = dow()
+    rate= Api_Call().rates()
+    prime=Api_Call().prime_rate()
+    dow_change = Api_Call().dow_price_change()
+    dow_price = Api_Call().dow()
     if current_user.is_authenticated:
         return redirect(url_for('home'))
     form= LogInForm()
@@ -82,10 +82,10 @@ def logout():
 @app.route("/account")
 @login_required
 def account():
-    rate= rates()
-    prime=prime_rate()
-    dow_change = dow_price_change()
-    dow_price = dow()
+    rate= Api_Call().rates()
+    prime=Api_Call().prime_rate()
+    dow_change = Api_Call().dow_price_change()
+    dow_price = Api_Call().dow()
     id = current_user.id
     user = User.query.get(id)
     contacts = user.contacts
@@ -97,10 +97,10 @@ def account():
 @app.route("/new_contact", methods= ['GET', 'POST'])
 @login_required
 def new_contact():
-    rate= rates()
-    prime=prime_rate()
-    dow_change = dow_price_change()
-    dow_price = dow()
+    rate= Api_Call().rates()
+    prime=Api_Call().prime_rate()
+    dow_change = Api_Call().dow_price_change()
+    dow_price = Api_Call().dow()
     form= NewContactForm()
     if form.validate_on_submit():
         contact =Contacts(name=form.name.data, phone=form.phone.data, email=form.email.data, notes=form.notes.data, username= current_user)
@@ -113,10 +113,10 @@ def new_contact():
 
 @app.route("/contact/<id>")
 def contact(id):
-    rate= rates()
-    prime=prime_rate()
-    dow_change = dow_price_change()
-    dow_price = dow()
+    rate= Api_Call().rates()
+    prime=Api_Call().prime_rate()
+    dow_change = Api_Call().dow_price_change()
+    dow_price = Api_Call().dow()
     contact=Contacts.query.get(id)
     image_file = url_for('static', filename= 'profile_pics/' + current_user.image_file)
     return render_template('contact.html', title=contact.name, contact=contact,

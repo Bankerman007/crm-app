@@ -29,8 +29,3 @@ class Contacts(db.Model):
     def __repr__(self):
         return f"Contacts('{self.name}','{self.phone}','{self.user_id})"
 
-# with app.app_context():
-#     contact_1=Contacts(id='1', name='Thor', phone='8475555555',email='thor@thor.com',notes='strongest avenger',user_id='1')
-#     db.session.add(contact_1)
-#     db.session.commit()
-#     print(Contacts.query.all())

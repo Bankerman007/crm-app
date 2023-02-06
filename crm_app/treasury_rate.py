@@ -1,42 +1,35 @@
 import requests
 
-def rates():
-    response = requests.get('http://fast-api-rates.justdev.us/rates/1')
-    json_convert= response.json()
-    json_data= json_convert['rate']
-    rate = json_data['rate']
+class Api_Call:
 
-    return rate
+    def rates(self):
+        response = requests.get('http://fast-api-rates.justdev.us/rates/1')
+        json_convert= response.json()
+        json_data= json_convert['rate']
+        rate = json_data['rate']
 
-rates()
+        return rate
 
-def prime_rate():
-    response = requests.get('http://fast-api-rates.justdev.us/rates/2')
-    json_convert= response.json()
-    json_data= json_convert['rate']
-    prime = json_data['rate']
-    
-    return prime 
-
-prime_rate()  
-
-def dow():
-    response = requests.get('http://fast-api-rates.justdev.us/rates/4')
-    json_convert= response.json()
-    json_data= json_convert['rate']
-    dow_price = json_data['rate']
+    def prime_rate(self):
+        response = requests.get('http://fast-api-rates.justdev.us/rates/2')
+        json_convert= response.json()
+        json_data= json_convert['rate']
+        prime = json_data['rate']
         
-    return dow_price
+        return prime     
 
-dow()
+    def dow(self):
+        response = requests.get('http://fast-api-rates.justdev.us/rates/4')
+        json_convert= response.json()
+        json_data= json_convert['rate']
+        dow_price = json_data['rate']
+            
+        return dow_price
 
-def dow_price_change():
-    response = requests.get('http://fast-api-rates.justdev.us/rates/3')
-    json_convert= response.json()
-    json_data= json_convert['rate']
-    dow_price_diff = json_data['rate']
-    print(dow_price_diff)
-
-    return dow_price_diff
-
-dow_price_change()
+    def dow_price_change(self):
+        response = requests.get('http://fast-api-rates.justdev.us/rates/3')
+        json_convert= response.json()
+        json_data= json_convert['rate']
+        dow_price_diff = json_data['rate']
+        
+        return dow_price_diff
